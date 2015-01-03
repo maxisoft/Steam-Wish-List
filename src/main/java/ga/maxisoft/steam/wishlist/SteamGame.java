@@ -10,5 +10,19 @@ public class SteamGame {
         this.name = name;
     }
 
+    public long getId() {
+        return id;
+    }
 
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public String toString() {
+        return "SteamGame{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }
