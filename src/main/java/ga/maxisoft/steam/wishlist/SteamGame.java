@@ -1,6 +1,6 @@
 package ga.maxisoft.steam.wishlist;
 
-public class SteamGame {
+public class SteamGame implements Comparable<SteamGame> {
     private final long id;
     private final String name;
 
@@ -24,5 +24,27 @@ public class SteamGame {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof SteamGame)) return false;
+
+        SteamGame steamGame = (SteamGame) o;
+
+        if (id != steamGame.id) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return (int) (id ^ (id >>> 32));
+    }
+
+    @Override
+    public int compareTo(SteamGame o) {
+        return Long.compare(id, o.id);
     }
 }
